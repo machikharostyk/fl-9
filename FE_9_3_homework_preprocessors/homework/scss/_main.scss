@@ -1,0 +1,161 @@
+@mixin reset {
+	* {
+		margin: 0px;
+		padding: 0xp;
+	}
+}
+
+@include reset;
+body {
+	background-color: #EFEFEF;
+}
+
+.main-wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+nav {
+	width: 850px;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: center;
+	border-top: 1px solid $borderNavColor;
+	border-bottom: 1px solid $borderNavColor;
+	margin-bottom: 80px;
+	a {
+		text-decoration: none;
+		color: $textColor;
+		font-size: 20pt;
+		text-transform: uppercase;
+		padding-top: 35px;
+	}
+
+}
+
+.toolbar {
+	display: flex;
+	justify-content: flex-end;
+	input {
+		width: 200px;
+		height: 40px;
+		border-color: $searchHeaderColor;
+		border-style: solid;
+		float: right;
+		&::placeholder {
+			color: $textColor;
+			padding-left: 10px;
+		}
+	}
+
+}
+
+#list {
+	margin-top: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	article {
+		background-color: white;
+		width: 47%;
+		margin-bottom: 20px;
+		padding: 10px;
+		height: 100%;
+		img {
+			width: 100%;
+		}
+		.post-description {
+			color: $postTitleColor;
+			font-family: $fontFamilyText;
+			border-bottom: 1px solid $paragraphColor;
+			padding: 10px 0px;
+		}
+		h3 {
+			color: $postHeaderColor;
+			text-transform: uppercase;
+			padding-top: 10px;
+		}
+		p {
+			color: $paragraphColor;
+			padding-bottom: 20px;
+		}
+	}
+}
+
+#about {
+	margin-top: 30px;
+	h1 {
+		text-transform: uppercase;
+		text-align: right;
+		color: $textColor;
+	}
+	p {
+		color: $paragraphColor;
+		font-family: $fontFamilyText;
+		padding-bottom: 30px;
+	}
+	img {
+		width: 100%;
+		margin-bottom: 40px;
+	}
+}
+
+#contact {
+	h1,
+	h4 {
+		text-align: right;
+		text-transform: uppercase;
+		color: $textColor;
+	}
+	.input-form {
+		display: flex;
+		flex-direction: column;
+		margin-top: 20px;
+		input {
+			height: 30px;
+			margin-bottom: 15px;
+			border: 1px solid #000000;
+			&::placeholder {
+				padding-left: 10px;
+				font-family: $fontFamilyText;
+			}
+		}
+		textarea {
+			height: 85px;
+			border: 1px solid #000000;
+			margin-bottom: 20px;
+			&::placeholder {
+				padding-left: 10px;
+				font-family: $fontFamilyText;
+				padding-top: 10px;
+			}
+		}
+		.btn-send {
+			display: flex;
+			justify-content: flex-end;
+			button {
+				width: 200px;
+				height: 50px;
+				background-color: $textColor;
+				text-transform: uppercase;
+				color: #ffffff;
+				border: none;
+				font-size: 12pt;
+			}
+		}
+	}
+}
+
+footer {
+	span {
+		color: $paragraphColor;
+	}
+}
