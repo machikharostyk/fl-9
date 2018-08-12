@@ -4,9 +4,9 @@
 	padding: 0;
 }
 
-@media all and (min-width:900px) {
+
 	#container {
-		width: 100%;
+		min-width: 900px;
 		height: 100%;
 		background: #ffffff;
 	}
@@ -191,7 +191,7 @@
 	}
 	.email_container {
 
-		width: 100%;
+		width: 90%;
 		height: 400px;
 		background: #F0F0F0;
 		display: flex;
@@ -262,33 +262,41 @@
 	}
 	.addition_footer {
 		height: 50%;
-		width: 400px;
+		width: 100%;
 		font-family: Open Sans;
 		display: flex;
 		flex-direction: column;
 		;
 		justify-content: flex-start;
 		align-items: flex-start;
-		margin-left: 30px;
+		margin-right: 1%;
+	}
+.addition_footer:nth-child(3) {
+	width: 55%;
+	}
+.addition_footer:last-child {
+	width: 85%;
 	}
 	.addition_footer input {
 		float: left;
-		width: 200px;
+		width: 75%;
 		height: 40px;
 		background: #f0f0f0;
 	}
+.mail_footer{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
 	.addition_footer .subscribe_btn {
-		width: 100px;
+		width: 35%;
 		height: 44px;
 		border: 0px;
 		font-family: Open Sans;
 		font-size: 12pt;
 		background: #343638;
 		color: #ffffff;
-		display: flex;
-		flex-direction: row;
 		justify-content: center;
-		align-items: center;
 		border: none;
 	}
 	.addition_footer input::placeholder {
@@ -343,4 +351,3 @@
 		font-weight: bolder;
 		list-style: none;
 	}
-}
