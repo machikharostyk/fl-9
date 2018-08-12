@@ -1,0 +1,236 @@
+/*
+ * Feel free to change name of colors if you need it
+ * Feel free to add new colors if you need it
+ */
+/*
+:root {
+  --bg-color--dark: #0a1223;
+  --bg-color--light: #fff;
+  --link: #5d5d5d;
+  --link--active: #54597d;
+  --link--hover: #54597d;
+  --article-title: #ddd;
+  --article-title--dark: #000;
+  --thumbnail--description: #5d5d5d;
+*/
+
+  /* These styles are needed only for media query max-width: 575px */
+
+  /* The 'Up' button (circle button at right bottom corner) */
+/*
+  --btn-color: #fff;
+  --btn-bg-color: #5ebcff;
+
+  --navigation-border-bottom: #ddd;
+  --thumbnail-title: #484747;
+}
+*/
+
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+	body {
+		background-color: #0a1223;
+	}
+	nav ul {
+		float: right;
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		color: #5d5d5d;
+		width: 30%;
+		justify-content: space-between;
+		margin: 3% 3% 0 0;
+		font-family: sans-serif;
+		font-size: 15pt;
+	}
+	nav ul a {
+		text-decoration: none;
+		color: #5d5d5d;
+	}
+	.active,
+	nav ul a:active {
+		color: #54597d;
+	}
+	nav ul a:hover {
+		color: #54597d;
+	}
+	header {
+		width: 100%;
+		text-align: center;
+
+	}
+	header h1 {
+		color: white;
+		font-family: sans-serif;
+		font-size: 60pt;
+		padding: 10% 0 0 5%;
+	}
+	#container {
+		margin: auto;
+		width: 90%;
+		margin-top: 7%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.info-box:nth-child(odd) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin-bottom: 50px;
+	}
+	.info-box:nth-child(even) {
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin-bottom: 50px;
+	}
+	.info-text h2 {
+		font-size: 40pt;
+		font-family: sans-serif;
+		background: linear-gradient(to right, #ffffff 0%, #000000 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin-bottom: 25px;
+	}
+	.info-text p {
+		width: 100%;
+		font-size: 20pt;
+		color: #5d5d5d;
+		font-family: Open Sans, sans-serif;
+	}
+	.info-text p:first-letter {
+		padding-left: 40px;
+	}
+	.info-text {
+		width: 50%;
+	}
+	.info-img {
+		width: 50%;
+	}
+	.info-img img {
+		width: 100%;
+	}
+#btn-up{
+	display: none;
+}
+
+
+@media screen and (max-width: 955px){
+	nav ul {
+		float: none;
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		color: #5d5d5d;
+		width: 30%;
+		justify-content: space-between;
+		font-family: sans-serif;
+		font-size: 15pt;
+		margin: auto;
+		margin-top: 3%;
+	}
+	header h1 {
+		margin-bottom: 10%;
+	}
+	#container{
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+	}
+	.info-box:nth-child(odd) {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		margin-bottom: 50px;
+	}
+	.info-box:nth-child(even) {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		margin-bottom: 50px;
+	}
+	.info-text {
+		width: 100%;
+	}
+	.info-img {
+		width: 100%;
+	}
+	.info-text p {
+		width: 100%;
+		font-size: 20pt;
+		color: #5d5d5d;
+		font-family: serif;
+	}
+	#btn-up{
+		display: none;
+	}
+	
+	
+}
+@media screen and (max-width:575px){
+	body{
+		background-color: #ffffff;
+	}
+	nav ul{
+		padding: 0;
+		margin: 0;
+		flex-direction: column;
+
+		width: 100%;
+
+		text-align: left;
+	}
+	nav ul li{
+		width: 100%;
+		border-bottom: 1px solid silver;
+		padding-bottom: 3%;
+		padding-top: 3%;
+	}
+	nav ul a:hover {
+		font-weight: bolder;
+	}
+	.active {
+		color: #54597d;
+		font-weight: bolder;
+	}
+	header h1{
+		color: #000000;
+	}
+	.info-text h2{
+		background: unset;
+		-webkit-background-clip: unset;
+		-webkit-text-fill-color: unset;
+		color: #484747;	
+	}
+	#btn-up{
+	display: flex;
+	width: 80px;
+	height: 80px;
+	background-color: #5ebcff;
+	text-decoration: none;
+	color: #ffffff;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 15px 15px 40px #A7A7A7;
+	position: fixed;
+	bottom: 4%;
+	right: 4%;
+	}
+}
