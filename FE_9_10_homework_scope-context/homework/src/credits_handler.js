@@ -1,13 +1,13 @@
-userCard = (key) => {
+let userCard = (key) => {
     let balance = 100;
     let transactionLimit = 100;
     let historyLog = [];
-    let tax = 5;
+    let tax = 0.5;
     let percent = 100;
     let fullTax = tax / percent;
     let _date = new Date().toLocaleString('en-GB');
     
-historyLogFunc = (operType, number) => {
+let historyLogFunc = (operType, number) => {
     historyLog.push({
         operationType: operType,
         credits: number,
@@ -60,11 +60,9 @@ class UserAccount{
         this.cardsArr = [];
     }
     addCard(){
-        if(this.cardsArr.length > this.keysMax){
-            console.error(`You already used maximum of creating cards - ${this.keysMax}`);
-        } else{
+        if(this.cardsArr.length < this.keysMax){
             this.cardsArr.push(userCard(this.cardsArr.length + 1));
-        }
+        } 
     }
     getCardByKey(keyNumber){
         return this.cardsArr[keyNumber - 1];
