@@ -1,0 +1,99 @@
+body {
+	font-family: sans-serif;
+}
+
+#root {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 700px;
+}
+
+h1 {
+	text-align: center;
+}
+
+h1 span {
+	color: #FE0404;
+	display: block;
+}
+
+.material-icons {
+	font-size: 35px;
+}
+
+
+.add-task-div {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 10px;
+}
+
+#add-task-input {
+	width: 650px;
+	padding: 0 5px;
+	height: 25px;
+}
+
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	height: 30px;
+	padding: 0;
+	width: 30px;
+}
+
+#add-task-btn {
+	margin-left: 10px;
+}
+
+img {
+	height: 120px;
+	margin: 30px auto;
+}
+
+#taskList {
+	border-top: 2px solid #000000;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	padding: 10px 0 25px 5px;
+}
+
+#taskList li {
+	align-items: center;
+	cursor: all-scroll;
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 15px;
+	padding: 5px;
+}
+
+.delete-btn {
+	cursor: pointer;
+	margin-left: auto;
+}
+
+.check-btn {
+	border: 2px solid #000;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 30px;
+	margin-right: 15px;
+}
+
+.checked {
+	background: #000000;
+	color: #ffffff;
+}
+
+
+
+.drag-div {
+	border: 2px dashed #ddd;
+}
