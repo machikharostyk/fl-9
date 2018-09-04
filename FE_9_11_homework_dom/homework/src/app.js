@@ -25,7 +25,6 @@ function addTask() {
 		addInput.value = '';
 		addTaskList();
 		checkArrayLenght();
-		dragAndDrop();
 		addTaskBtn.disabled = true;
 	}
 }
@@ -35,6 +34,8 @@ function addTaskList() {
 		deleteBtn = document.createElement('i'),
 		span = document.createElement('span'),
 		liElem = document.createElement('li');
+	liElem.setAttribute('class', 'list-item');
+	liElem.setAttribute('draggable', true);
 
 	doneBtn.classList.add('material-icons', 'check-btn');
 	doneBtn.innerHTML = 'check';
@@ -52,8 +53,9 @@ function addTaskList() {
 
 		taskList.splice(j, numberToDelete);
 		list.removeChild(listItemToRemove);
-		dragAndDrop();
-		checkArrayLenght();
+
+		addInput.disabled = false;
+		document.getElementById('warning').style.display = 'none';
 	})
 
 	for (let i = 0; i < taskList.length; i++) {
@@ -90,79 +92,26 @@ function checkArrayLenght() {
 }
 
 
-let dragItems = [];
+let dragAndDrop = null;
 
-function dragAndDrop() {
-	dragItems = document.querySelectorAll('#list > li');
-	for (let i = 0; i < dragItems.length; i++) {
-		dragItems[i].setAttribute('draggable', 'true');
-		dragItems[i].addEventListener('startOfDrag', startOfDrag, false);
-		dragItems[i].addEventListener('endOfDrag', endOfDrag);
-		dragItems[i].addEventListener('drop', dragDrop, false);
-		dragItems[i].addEventListener('dragenter', dragEnter);
-		dragItems[i].addEventListener('dragleave', dragLeave);
-		dragItems[i].addEventListener('dragover', cancel, false);
-	}
-}
+list.addEventListener('dragstart', elem => {
+	dragAndDrop = elem.target;
+});
 
-function getIndex(array, item) {
-	for (let i = 0; i < array.length; i++) {
-		if (array[i] === item) {
-			return i;
-		}
-	}
-}
-
-function startOfDrag(elem) {
-	const indexDrag = getIndex(dragItems, this);
-	this.style.opacity = '0.5';
-	elem.dataTransfer.dropEffect = 'move';
-	elem.dataTransfer.setData('text', indexDrag);
-}
-
-function endOfDrag(elem) {
-	this.style.opacity = 'unset';
-}
-
-function dragDrop(elem) {
-	cancel(elem);
-
-	let preIndex = elem.dataTransfer.getData('text'),
-		target = elem.target,
-		nextIndex = getIndex(dragItems, target),
-		dropped = dragItems[preIndex];
-
-	target.classList.remove('drag-zone');
-
-	if (nextIndex < preIndex) {
-		list.removeChild(dropped);
-		list.insertBefore(dropped, dragItems[nextIndex]);
-		dragAndDrop();
-	} else {
-		list.removeChild(dropped);
-		list.insertBefore(dropped, dragItems[++nextIndex]);
-		dragAndDrop();
-	}
-}
-
-function dragLeave(elem) {
-	this.classList.remove('drag-div');
-}
-
-function dragEnter(elem) {
-	cancel(elem);
-
-	this.classList.add('drag-div');
-}
-
-function cancel(elem) {
-	if (elem.preventDefault) {
+list.addEventListener('dragover', elem => {
+	if (elem.target.className === 'list-item') {
 		elem.preventDefault();
 	}
+});
 
-	if (elem.stopPropagation) {
-		elem.stopPropagation();
+list.addEventListener('dragleave', elem => {
+	elem.target.style.transform = '';
+});
+
+list.addEventListener('drop', elem => {
+	if (elem.target.className === 'list-item') {
+		elem.preventDefault();
+		elem.target.style.transform = '';
+		list.insertBefore(dragAndDrop, elem.target);
 	}
-
-	return false;
-}
+});
