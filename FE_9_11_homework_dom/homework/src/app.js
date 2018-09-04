@@ -92,23 +92,23 @@ function checkArrayLenght() {
 }
 
 
-let dragAndDrop = null;
+let dragAndDrop;
 
-list.addEventListener('dragstart', elem => {
+list.addEventListener('dragstart', function(elem) {
 	dragAndDrop = elem.target;
 });
 
-list.addEventListener('dragover', elem => {
+list.addEventListener('dragover', function(elem) {
 	if (elem.target.className === 'list-item') {
 		elem.preventDefault();
 	}
 });
 
-list.addEventListener('dragleave', elem => {
+list.addEventListener('dragleave', function(elem) {
 	elem.target.style.transform = '';
 });
 
-list.addEventListener('drop', elem => {
+list.addEventListener('drop', function(elem) {
 	if (elem.target.className === 'list-item') {
 		elem.preventDefault();
 		elem.target.style.transform = '';
