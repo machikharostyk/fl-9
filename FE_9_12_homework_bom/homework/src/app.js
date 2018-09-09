@@ -1,5 +1,6 @@
 const rootNode = document.getElementById('root');
 let counter = 0;
+let number = 0;
 const todoItems = [];
 let modifyValue = '';
 
@@ -36,7 +37,7 @@ function main() {
         } else {
             img.src = './assets/img/todo-s.png';
         }
-        img.addEventListener('click', () => {
+        img.addEventListener('click', function() {
             if (todoItems[i].isDone) {
                 img.src = './assets/img/todo-s.png';
                 todoItems[i].isDone = false;
@@ -94,7 +95,9 @@ function main() {
 
 
 
-    addTaskbtn.addEventListener('click', () => window.location.hash = 'add-task');
+    addTaskbtn.addEventListener('click', function(){
+         window.location.hash = 'add-task'
+        });
 }
 main();
 
@@ -145,7 +148,7 @@ function modifyItem() {
     headerText.innerText = 'Modify Item';
     let input = document.createElement('input');
     input.id = 'editor';
-    input.value = todoItems[0].description;
+    input.value = todoItems[number].description;
     let modifyPage = document.createElement('div');
     modifyPage.className = 'modify-page';
     let cancelBtn = document.createElement('button');
@@ -161,11 +164,13 @@ function modifyItem() {
     modifyPage.appendChild(cancelBtn);
     modifyPage.appendChild(save);
 
-    cancelBtn.addEventListener('click', () => window.location.hash = '');
+    cancelBtn.addEventListener('click', function(){
+        window.location.hash = ''
+    } );
 
     save.addEventListener('click', () => {
         let value = document.getElementById('editor').value;
-        todoItems[0].description = value;
+        todoItems[number].description = value;
         window.location.hash = '';
         return todoItems;
     });
